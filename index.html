@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lumberjack - Game</title>
+    
+<script type="text/javascript">
+    /*
+        width x height
+        1920 x 1080
+        1366 x 768
+        1280 x 1024
+        1280 x 800
+        1024 x 768
+    */
+    
+    var height;
+    var width;
+    var BLOCK_SIZE;
+    
+    window.load = function() {
+        trackAndDraw();
+    };
+    
+    window.onresize = function() {
+        trackAndDraw();
+    };
+    
+    function trackAndDraw() {
+        height = window.innerHeight;
+        width = window.innerWidth;
+    
+        // console.log("Height: " + height);
+        // console.log("Width: " + width);
+        
+        var can = document.getElementById("gameBoard");
+                
+        if (height <= 800) {
+            can.height = 600;
+            can.width = 800;            
+        } else {
+            can.height = 900;
+            can.width = 1200;        
+        };
+        
+        BLOCK_SIZE = {
+            height: can.height/20, 
+            width: can.width/20
+        };
+        
+        var ctx = can.getContext("2d");
+        ctx.fillStyle = "#00e600";
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(0, BLOCK_SIZE.height * 9, BLOCK_SIZE.width, BLOCK_SIZE.height);            
+    };
+</script>    
+
+</head>
+
+<body>
+
+    <canvas id="gameBoard"></canvas>
+    
+    
+    
+    
+</body>
+
+</html>
