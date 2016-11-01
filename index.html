@@ -16,6 +16,9 @@
     var height;
     var width;
     var BLOCK_SIZE;
+    var BACKGROUND = "#00e600";
+    var PLAYER = "#FF0000";
+    var WALL = "#CCCCCC";
     
     window.load = function() {
         trackAndDraw();
@@ -44,14 +47,14 @@
         
         BLOCK_SIZE = {
             height: can.height/20, 
-            width: can.width/20
+            width: can.width/30
         };
         
         var ctx = can.getContext("2d");
-        ctx.fillStyle = "#00e600";
+        ctx.fillStyle = BACKGROUND;
         ctx.fillRect(0, 0, width, height);
 
-        ctx.fillStyle = "#FF0000";
+        ctx.fillStyle = PLAYER;
         ctx.fillRect(0, BLOCK_SIZE.height * 9, BLOCK_SIZE.width, BLOCK_SIZE.height);            
     };
 </script>    
